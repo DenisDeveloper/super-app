@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html data-ng-app="SuperApp">
+<head>
+  <title>Super app</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Super angular demo">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.10.1/angular-material.min.css">
+  <link rel="stylesheet" href="css/md-data-table.css">
+  <link rel="stylesheet" href="css/app.css"/>  
+</head>
+<body layout="column" ng-controller="MainController">
+    
+    <md-toolbar layout="column" class="md-tall"><span flex="flex"></span>
+      <h2 style="padding-left:28px;">Заявки на регистрацию</h2>
+      <div class="md-toolbar-tools">        
+        <div layout="row" flex="flex" class="fill-height">
+          <div ng-hide="toggleSearch" class="md-toolbar-item md-breadcrumb"></div><span flex="flex" ng-hide="toggleSearch"></span>
+          <md-input-container flex="flex" style="padding-left:88px;" ng-show="toggleSearch">
+            <input type="text" ng-model="search" aria-label="Поиск"/>
+          </md-input-container>
+          <div layout="row" class="md-toolbar-item md-tools"><a href="#" ng-click="toggleSearch = !toggleSearch" class="md-button md-default-theme"><md-icon md-svg-src="img/icons/magnify.svg" style="width: 24px; height: 24px;"></md-icon></a></div>
+          <div class="main-fab">
+      <md-button class="md-fab md-accent" ng-click="showDialog($event)" aria-label="Добавить">
+        <md-icon md-svg-src="img/icons/ic_add_24px.svg" style="width: 24px; height: 24px;"></md-icon>
+      </md-button>
+    </div>
+        </div>
+      </div>
+    </md-toolbar>    
+    
+    <md-content layout="column" flex="flex" ng-click="toggleSearch=false">
+      <md-content laout="column" flex>
+        <md-data-table-toolbar ng-show="!selected.length">          
+        </md-data-table-toolbar>
+
+        <md-data-table-toolbar class="alternate" ng-show="selected.length">
+          <div>{{selected.length}} {{selected.length > 1 ? 'items' : 'item'}} selected</div>
+        </md-data-table-toolbar>
+
+        <md-data-table-container>
+          <table md-data-table class="md-primary" md-row-select="selected" md-progress="deferred">
+            <thead md-order="query.order" md-trigger="onorderchange">
+              <tr>
+                <th order-by="email" name="Email"></th>
+                <th order-by="status" name="Status"></th>
+                <th name="Time"></th>
+                <th name="FirstName"></th>
+                <th name="SecondName"></th>
+                <th name="Employee position"></th>
+                <th name="Company"></th>
+                <th name="Phone"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr md-auto-select ng-repeat="request in request.data | filter: search | orderBy: query.order | limitTo: query.limit: (query.page - 1) * query.limit">
+                <td>{{request.email}}</td>
+                <td>
+                  <md-select ng-model="request.status" ng-change="setStatus(request)" placeholder="Other">
+                    <md-option ng-value="status" ng-repeat="status in getStatus()">{{status}}</md-option>
+                  </md-select>
+                </td>
+                <td>{{request.time | date:'dd.MM.yyyy'}}</td>
+                <td>{{request.formData.firstName}}</td>
+                <td>{{request.formData.secondName}}</td>
+                <td>{{request.formData.employeePosition}}</td>
+                <td>{{request.formData.company}}</td>
+                <td>{{request.formData.phone}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </md-data-table-container>
+
+        <md-data-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{request.count}}" md-trigger="onpagechange"></md-data-table-pagination>
+    </md-content>
+    </md-content>
+    <script type="text/javascript" src="js/super.js"></script>
+  </body>
+</html>

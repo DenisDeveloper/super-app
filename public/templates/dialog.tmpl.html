@@ -1,0 +1,53 @@
+<md-dialog aria-label="Full Screen Dialog Test" class="fullscreen-dialog">
+      <md-toolbar>
+        <div class="md-toolbar-tools" layout-fill>
+          <md-button class="md-icon-button" ng-click="closeDialog()">
+            <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+          </md-button>          
+          <h2>Добавить заявку</h2>
+          <span flex></span>
+          <md-button ng-click="save(request)">SAVE</md-button>
+        </div>
+      </md-toolbar>
+      <md-dialog-content>
+        <form name="userForm"></form>
+       
+        <md-input-container flex="flex">
+          <label>Email</label>
+          <input ng-model="request.email"/>
+        </md-input-container>
+        <div layout="layout" layout-sm="column">
+          <md-input-container flex="flex">
+            <label>Time</label>
+            <input type="date" ng-model="request.time"/>
+          </md-input-container>
+          <md-select ng-model="request.status" placeholder="Other">
+            <md-option ng-value="status" ng-repeat="status in getStatus()">{{status}}</md-option>
+          </md-select>
+        </div>
+        <div layout="layout" layout-sm="column">
+          <md-input-container flex="flex">
+          <label>First name</label>
+          <input ng-model="request.firstName"/>
+        </md-input-container>
+        <md-input-container flex="flex">
+          <label>Second name</label>
+          <input ng-model="request.secondName"/>
+        </md-input-container>
+        </div>        
+        <md-input-container flex="flex">
+          <label>Employee position</label>
+          <input ng-model="request.employeePosition"/>
+        </md-input-container>
+        <div layout="layout" layout-sm="column">
+          <md-input-container flex="flex">
+          <label>Company</label>
+          <input ng-model="request.company"/>
+        </md-input-container>
+        <md-input-container flex="flex">
+          <label>Phone</label>
+          <input ng-model="request.phone"/>
+        </md-input-container>
+        </div>             
+      </md-dialog-content>
+    </md-dialog>

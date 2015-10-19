@@ -1,0 +1,79 @@
+[
+	{
+		"email": "alex@mail.com",
+    	"status": ["open"],
+    	"formData": {
+    		"firstName": "Alex",
+    		"secondName": "Newman",
+    		"employeePosition": "Lawyer",
+    		"company": "Microsoft",
+    		"phone":"8945"
+    	}
+    },
+    {
+		"email": "tom@mail.com",
+    	"status": ["inWork"],
+    	"formData": {
+    		"firstName": "Tom",
+    		"secondName": "Taylar",
+    		"employeePosition": "Booker",
+    		"company": "Wood and rock",
+    		"phone":"7857"
+    	}
+    },
+    {
+		"email": "bob@mail.com",
+    	"status": ["approved"],
+    	"formData": {
+    		"firstName": "Bob",
+    		"secondName": "Fisher",
+    		"employeePosition": "Cashier",
+    		"company": "Hardhead",
+    		"phone":"7724"
+    	}
+    },
+    {
+		"email": "tim@mail.com",
+    	"status": ["canceled"],
+    	"formData": {
+    		"firstName": "Tim",
+    		"secondName": "Freeman",
+    		"employeePosition": "Cleaner",
+    		"company": "Goldtown",
+    		"phone":"4466"
+    	}
+    },
+    {
+		"email": "jack@mail.com",
+    	"status": ["open"],
+    	"formData": {
+    		"firstName": "Jack",
+    		"secondName": "Warfun",
+    		"employeePosition": "Teacher",
+    		"company": "Blacktree",
+    		"phone":"2109"
+    	}
+    },
+    {
+		"email": "denis@mail.com",
+    	"status": ["inWork"],
+    	"formData": {
+    		"firstName": "Denis",
+    		"secondName": "Grand",
+    		"employeePosition": "Security guard",
+    		"company": "Hotel love",
+    		"phone":"0024"
+    	}
+    },
+    {
+		"email": "boris@mail.com",
+    	"status": ["approved"],
+    	"formData": {
+    		"firstName": "Boris",
+    		"secondName": "Ivanov",
+    		"employeePosition": "Carpenter",
+    		"company": "Stolnavek",
+    		"phone":"3334"
+    	}
+    }
+]
